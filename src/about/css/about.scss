@@ -1,0 +1,70 @@
+
+.button_modal {
+  font-size: 117%;
+}
+.modal {
+  border-radius: 10px;
+  margin: 0 auto;
+  position: fixed;
+  top: -100%;
+  z-index: 10;
+  height: 300px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 50px;
+  width: 300px;
+  background-color: #fff;
+  padding: 20px;
+  &_title {
+    color: #ff0000;
+    font-size: 172%;
+  }
+  &_content {
+    padding: 20px 0;
+    font-size: 117%;
+  }
+  &_close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    &::before, &::after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+      display: block;
+      content: '';
+      width: 2px;
+      height: 100%;
+      background-color: #111;
+    }
+    &::before {
+      transform: rotateZ(45deg);
+    }
+    &::after {
+      transform: rotateZ(-45deg);
+    }
+  }
+}
+.overlay {
+  display: none;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  cursor: pointer;
+}
+//
+// .effect {
+//   display: none;
+// }

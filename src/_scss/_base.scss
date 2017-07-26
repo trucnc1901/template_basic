@@ -1,0 +1,70 @@
+/*---------------------------------------
+  Base
+----------------------------------------*/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
+  text-size-adjust: 100%;
+}
+
+// =============================================
+//  anchor color
+// =============================================
+a {
+  color: $color-link;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    img {
+      transition: opacity 0.3s $transition-hover-fast;
+      opacity: $opacity-hover;
+    }
+  }
+}
+// =============================================
+//  form
+// =============================================
+input,
+textarea,
+select,
+button {
+  outline: none;
+  font-family: $font-family-base;
+  font-size: inherit;
+  color: inherit;
+  /* stylelint-disable property-no-vendor-prefix */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  /* stylelint-enable property-no-vendor-prefix */
+  appearance: none;
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+select,
+button {
+  margin: 0;
+  cursor: pointer;
+}
+
+::placeholder {
+  color: $color-placeholder;
+}
+
+svg {
+  vertical-align: middle;
+}
+
+// Chromeのみ。Safariでは画像が荒くなる
+@media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) {
+  img {
+    image-rendering: -webkit-optimize-contrast; // stylelint-disable-line
+  }
+}

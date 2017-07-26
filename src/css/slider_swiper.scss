@@ -1,0 +1,147 @@
+@charset 'utf-8';
+
+@import "../_scss/abstract/mixin";
+@import "../_scss/abstract/variable";
+
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: -60px;
+  left: 0;
+  right: 0;
+  display: inline-block;
+  background: none;
+  width: auto;
+  background-color: transparent;
+}
+.main_visual {
+  position: relative;
+  overflow: hidden;
+}
+.slider {
+  width: 960px;
+  overflow: visible;
+  height: 400px;
+  &_item {
+    width: 100%!important;
+    position: relative;
+  }
+  &_btn {
+    top: 22px;
+    height: 400px;
+    position: absolute;
+    top: 0;
+    z-index: 11;
+    cursor: pointer;
+  }
+  &_btn_prev::after,
+  &_btn_next::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    border-color: $color-bg;
+    border-style: solid;
+    border-width: 0;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    top: 5px;
+    bottom: 0;
+    margin: auto;
+  }
+  &_btn_prev {
+    left: -10px;
+    &::after {
+      transform: rotate(-135deg);
+      right: 20px;
+    }
+  }
+  &_btn_next {
+    right: -10px;
+    &::after {
+      transform: rotate(45deg);
+      left: 20px;
+    }
+  }
+  @media screen and (max-width: $widthTablet)  {
+    &_btn {
+      width: 30px;
+      height: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: transparent;
+    }
+    &_btn_prev {
+      left: 20px;
+      &::after {
+        transform: rotate(-135deg);
+        right: 0;
+      }
+    }
+    &_btn_next {
+      right: 20px;
+      &::after {
+        transform: rotate(45deg);
+        left: 0;
+      }
+    }
+  }
+  @include device("sp") {
+    width: 100%;
+    height: auto;
+    &_item {
+      position: relative;
+      &:not(.swiper-slide-active) {
+        &::before {
+          display: none;
+        }
+      }
+    }
+    &_image {
+      width: 100%;
+      height: auto;
+    }
+    &_btn_prev {
+      left: 20px;
+    }
+    &_btn_next {
+      right: 20px;
+    }
+  }
+}
+.slider_thumbnail {
+  padding-top: 20px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: transparent;
+  transform: none;
+  transition: none;
+  -webkit-tap-highlight-color: transparent;
+  &_item {
+    border: 2px solid $color-link;
+    display: inline-block;
+    width: 150px;
+    height: 60px;
+    cursor: pointer;
+    overflow: hidden;
+    opacity: 0.5;
+    transition: all $transition-hover;
+    &:not(:first-child) {
+      margin-left: 10px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+    &.is_active {
+      border-color: $color-main;
+      opacity: 1;
+    }
+  }
+  @include device("sp") {
+    &_item {
+      width: 90px;
+      height: 40px;
+    }
+  }
+}

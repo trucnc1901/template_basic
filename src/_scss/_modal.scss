@@ -1,0 +1,107 @@
+.btn_modal {
+  font-size: 117%;
+}
+.modal {
+  position: fixed;
+  width: 90%;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 630px;
+  min-width: 320px;
+  height: auto;
+  z-index: 2000;
+  transform: translateY(-50%);
+  visibility: hidden;
+
+  &.modal_show {
+    visibility: visible;
+  }
+  &_overlay {
+    @extend .overlay;
+    display: block;
+  }
+  &_container {
+    background: $color-sub;
+    border-radius: 3px 3px 0 0;
+    transition: all $transition-hover;
+    opacity: 0;
+  }
+  &_fade {
+    .modal_container {
+      transform: scale(0.7);
+      &.show {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+  &_slide_bottom {
+    .modal_container {
+      transform: translateY(30%);
+      &.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  }
+  &_flip {
+    perspective: 1300px;
+    .modal_container {
+      transform: rotateX(-70deg);
+      transform-style: preserve-3d;
+      &.show {
+        transform: rotateX(0deg);
+        opacity: 1;
+      }
+    }
+  }
+  &_title {
+    margin: 0;
+    padding: 15px 50px 15px 20px;
+    text-align: center;
+    font-size: 250%;
+    font-weight: 300;
+    opacity: 0.8;
+    color: $color-bg;
+    background: rgba(0,0,0,0.1);
+  }
+  &_content {
+    padding: 20px 15px;
+    p {
+      margin: 0;
+      padding: 10px 0;
+      color: $color-bg;
+      font-size: 117%;
+    }
+  }
+  &_close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 10;
+    &::before, &::after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+      display: block;
+      content: '';
+      width: 2px;
+      height: 100%;
+      background-color: $color-bg;
+    }
+    &::before {
+      transform: rotateZ(45deg);
+    }
+    &::after {
+      transform: rotateZ(-45deg);
+    }
+  }
+}

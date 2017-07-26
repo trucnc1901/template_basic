@@ -1,0 +1,59 @@
+.btn_accordion {
+  width: 100%;
+  padding: 10px 20px;
+  display: block;
+  border: none;
+  font-size: 150%;
+  text-align: left;
+  background-color: $color-sub;
+  color: $color_bg;
+  cursor: pointer;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  &.active {
+    .btn_accordion_icon {
+      transform: rotateZ(180deg);
+    }
+  }
+  &_icon {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    margin-top: -7px;
+    transition: all $transition-accordion;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: inherit;
+      height: inherit;
+      border-color: $color-bg;
+      border-style: solid;
+      border-width: 0;
+      border-top-width: 2px;
+      border-right-width: 2px;
+      transform: rotate(-45deg);
+      margin: auto;
+    }
+  }
+}
+.container_accordion {
+  display: none;
+  overflow: hidden;
+}
+.content_accordion {
+  padding: 20px;
+  background: $color-main;
+  > p  {
+    font-size: 117%;
+    color: $color-bg;
+  }
+  &_title {
+    font-size: 142%;
+    color: $color-bg;
+    padding-bottom: 10px
+  }
+}

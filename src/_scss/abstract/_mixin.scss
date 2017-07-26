@@ -1,0 +1,24 @@
+$widthOnlyPC: 768px;
+$widthTablet: 1024px;
+$widthSP: 767px;
+
+@mixin device($point) {
+   @if $point == tablet {
+     @media screen and (max-width: $widthTablet) and (min-width: $widthOnlyPC){ @content ; }
+  }
+    @else if $point == sp {
+     @media screen and (max-width: $widthSP) { @content ; }
+  }
+    @else if $point == onlyPC {
+     @media screen and (min-width: $widthOnlyPC) { @content ; }
+  }
+}
+
+@mixin clearfix {
+  &::after {
+    display: block;
+    clear: both;
+    content: '';
+    height: 0;
+  }
+}
